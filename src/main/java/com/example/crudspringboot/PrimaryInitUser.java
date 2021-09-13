@@ -52,6 +52,7 @@ public class PrimaryInitUser {
                 "test@mail.ru",
                 setRolesUser);
         userService.add(user);
+        System.out.println(userService.getUserId(1).getPassword());
     }
 
 }

@@ -77,7 +77,6 @@ public class UserController {
     @GetMapping("/update={id}")
     public String update(@PathVariable("id") long id, Model model) {
         User user = userService.getUserId(id);
-        user.setPassword("");
         model.addAttribute("User", user);
         model.addAttribute("Roles", roleService.listRole());
         return "update";
