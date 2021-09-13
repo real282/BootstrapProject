@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Users</title>
+    <style>
+        table th, table td {
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+<h1>Home admin page</h1>
+
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Last Name</th>
+        <th>E-mail</th>
+        <th>Edit</th>
+
+
+    </tr>
+
+    <tr>
+        <td th:text="${user.getName()}">Name</td>
+        <td th:text="${user.getLastName()}">Last Name</td>
+        <td th:text="${user.getEmail()}">E-mail</td>
+
+        <td><a th:href="@{/update={id}(id=${user.getId()})}">Edit</a></td>
+
+    </tr>
+</table>
+<a th:href="@{/list}">
+    <h2>List user</h2>
+</a>
+<br>
+<a href="/logout">Logout</a>
+
+</body>
+</html>
