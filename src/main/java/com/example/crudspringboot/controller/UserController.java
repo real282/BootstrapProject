@@ -66,7 +66,7 @@ public class UserController {
     }
 
     //удаление пользователя
-    @GetMapping("/delete={id}")
+    @DeleteMapping("/{id}")
     public String deleteUser(@PathVariable("id") long id) {
         System.out.println("DELETE " + id);
         userService.delete(id);

@@ -33,9 +33,17 @@
         <td th:utext="${users.getLastName()}">Last Name</td>
         <td th:utext="${users.getEmail()}">E-mail</td>
 
-        <td><a th:href="@{/delete={id}(id=${users.getId()})}">Delete</a></td>
-        <td><a th:href="@{/update={id}(id=${users.getId()})}">Edit</a></td>
+        <td>
+            <form th:method="delete" th:action="@{/{id}(id=${users.getId()})}">
+                <input type="submit" value="Delete">
+            </form>
+        </td>
 
+        <td>
+            <form th:method="get" th:action="@{/update={id}(id=${users.getId()})}">
+                <input type="submit" value="Edit">
+            </form>
+        </td>
     </tr>
 </table>
 <a href="/create">Create new User</a>
