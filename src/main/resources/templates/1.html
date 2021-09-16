@@ -56,11 +56,11 @@
                     <td th:utext="${users.getRoles}">Role</td>
 
                     <td>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalEdit" th:attrappend="data-target=${users.id}">Delete>Edit</button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalEdit">Edit</button>
                     </td>
 
                     <td>
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalDelete" th:attrappend="data-target=${users.id}">Delete</button>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalDelete">Delete</button>
                     </td>
                 </tr>
                 </tbody>
@@ -68,7 +68,7 @@
         </div>
 
 <!--Модальное окно удаления пользователя-->
-        <div class="modal fade" id="exampleModalDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" th:attrappend="data-target=${users.id}">
+        <div class="modal fade" id="exampleModalDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -78,7 +78,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div th:utext="${users.id}"></div>
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
