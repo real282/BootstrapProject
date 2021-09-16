@@ -7,6 +7,8 @@ import com.example.crudspringboot.serviece.RoleService;
 import com.example.crudspringboot.serviece.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -38,10 +40,12 @@ public class UserController {
     }
 
     //список со всеми пользователями
-    @GetMapping("/list")
+    @GetMapping("/index")
     public String printIndex(Model model) {
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("messages", userService.listUsers());
-        return "listUser";
+        model.addAttribute("userLogin", userDetails);
+        return "1";
     }
 
     //форма регистрации нового пользователя
@@ -98,7 +102,7 @@ public class UserController {
 
 
     //начальная страница админа после логина
-    @GetMapping("index")
+    @GetMapping("index1")
     public String getInfoAdmin(@AuthenticationPrincipal User user, Model model) {
         model.addAttribute("user", user);
         return "1";
