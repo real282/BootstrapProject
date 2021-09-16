@@ -44,7 +44,7 @@ public class UserController {
     public String printIndex(Model model) {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("messages", userService.listUsers());
-        model.addAttribute("userLogin", userDetails);
+        model.addAttribute("loggedUser", userDetails);
         return "1";
     }
 
