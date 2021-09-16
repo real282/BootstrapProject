@@ -95,17 +95,12 @@ public class UserController {
         return "redirect:/list";
     }
 
-    //начальная страница юзера после логина
-    @GetMapping("userPage")
-    public String getInfo(@AuthenticationPrincipal User user, Model model) {
-        model.addAttribute("user", user);
-        return "userPage";
-    }
+
 
     //начальная страница админа после логина
-    @GetMapping("adminPage")
+    @GetMapping("index")
     public String getInfoAdmin(@AuthenticationPrincipal User user, Model model) {
         model.addAttribute("user", user);
-        return "adminPage";
+        return "1";
     }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
     <title>Users</title>
@@ -32,9 +32,11 @@
 
     </tr>
 </table>
+<div sec:authorize="hasRole('ROLE_ADMIN')">
 <a th:href="@{/list}">
     <h2>List user</h2>
 </a>
+    </div>
 <br>
 <a href="/logout">Logout</a>
 
