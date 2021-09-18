@@ -99,8 +99,6 @@ public class UserController {
         return "redirect:/list";
     }
 
-
-
     //начальная страница админа после логина
     @GetMapping("index1")
     public String getInfoAdmin(@AuthenticationPrincipal User user, Model model) {
