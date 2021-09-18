@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Admin panel</title>
+    <link rel="icon" type="image/ico" href="favicon.ico"/>
 </head>
 <body>
 <div class="p-2 text-white bg-dark">
@@ -40,17 +42,17 @@
                 <div class="card-header">
                     <ul class="nav nav-tabs card-header-tabs">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Active</a>
+                            <a class="nav-link active" href="#">User table</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
+                            <a class="nav-link" href="#newUser">New user</a>
                         </li>
                     </ul>
                 </div>
-                <div class="card-body">
+                <div class="tab-pane fade border" id="#" role="tabpanel">
                     <h5 class="card-title text-left">All user</h5>
 
-                    <!--таблица с пользователями-->
+                    <!--ListUser-->
 
                     <table class="table table-striped">
                         <thead>
@@ -88,7 +90,52 @@
                     </table>
                 </div>
 
+<!--                <div class="tab-pane fade border" id="newUser" role="tabpanel">-->
+<!--                    <div class="pl-3 pt-1 d-flex border-bottom"><h4> Add new user</h4></div>-->
+<!--                    <div class="container bg-white">-->
+<!--                        <form class="form-signin mx-auto font-weight-bold text-center p-3"-->
+<!--                              style="width: 300px;" th:action="@{/create}" method="post" th:object="${newUser}">-->
+<!--                            <p>-->
+<!--                                <label for="newName">First name</label>-->
+<!--                                <input class="form-control form-control-sm" type="text"-->
+<!--                                       name="name" id="newName" placeholder="First name" required autofocus>-->
+<!--                            </p>-->
+<!--                            <p>-->
+<!--                                <label for="newLastName">Last name</label>-->
+<!--                                <input class="form-control form-control-sm" type="text"-->
+<!--                                       name="lastName" id="newLastName" placeholder="Last name">-->
+<!--                            </p>-->
+<!--                            <p>-->
+<!--                                <label for="newEmail">Email</label>-->
+<!--                                <input class="form-control form-control-sm" type="email"-->
+<!--                                       name="email" id="newEmail" placeholder="Email" required>-->
+<!--                            </p>-->
+<!--                            <p>-->
+<!--                                <label for="newPasswd">Password</label>-->
+<!--                                <input class="form-control form-control-sm" type="password"-->
+<!--                                       name="password" id="newPasswd" placeholder="Password" required>-->
+<!--                            </p>-->
+<!--                            <p>-->
+
+<!--                                <label for="newRoles">Role</label>-->
+<!--                                <select class="form-control form-control-sm" id="newRoles" name="roles" multiple-->
+<!--                                        size="2" required>-->
+<!--                                    <option th:each="role : ${allRoles}"-->
+<!--                                            th:value="${role.id}"-->
+<!--                                            th:text="${role.name}">-->
+<!--                                    </option>-->
+<!--                                </select>-->
+
+<!--                            </p>-->
+<!--                            <button class="btn btn-success" type="submit">Add new user</button>-->
+<!--                        </form>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+
+
             </div>
+
         </div>
 
 
