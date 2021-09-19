@@ -63,15 +63,6 @@ public class UserController {
         return "redirect:/admin";
     }
 
-
-//    @PostMapping("/add")
-//    public String addUser(@ModelAttribute User user) {
-//        System.out.println("add");
-//        userService.add(user);
-//        return "redirect:/admin";
-//    }
-
-
     //удаление пользователя
     @DeleteMapping("/{id}")
     public String deleteUser(@PathVariable("id") long id) {
@@ -79,15 +70,6 @@ public class UserController {
         userService.delete(id);
         return "redirect:/admin";
     }
-
-//    //страница с формой редактирования пользователя
-//    @GetMapping("/update={id}")
-//    public String update(@PathVariable("id") long id, Model model) {
-//        User user = userService.getUserId(id);
-//        model.addAttribute("User", user);
-//        model.addAttribute("Roles", roleService.listRole());
-//        return "update";
-//    }
 
     //обработка редактирования пользователя
     @PatchMapping("/edit")
@@ -101,11 +83,4 @@ public class UserController {
         userService.update(user);
         return "redirect:/admin";
     }
-
-//    //начальная страница админа после логина
-//    @GetMapping("index1")
-//    public String getInfoAdmin(@AuthenticationPrincipal User user, Model model) {
-//        model.addAttribute("user", user);
-//        return "admin";
-//    }
 }
