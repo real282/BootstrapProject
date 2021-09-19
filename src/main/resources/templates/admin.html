@@ -75,10 +75,10 @@
                                     <td th:utext="${user.getLastName()}">Last Name</td>
                                     <td th:utext="${user.getEmail()}">E-mail</td>
                                     <td th:utext="${user.getRoles}">Role</td>
-
                                     <td>
                                         <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                th:data-target="${'#UPDATE' + user.id}">Edit</button>
+                                                th:data-target="${'#UPDATE' + user.id}">Edit
+                                        </button>
 
                                         <!--Модальное окно редактирования юзера-->
                                         <div class="modal fade" th:id="${'UPDATE' + user.id}" tabindex="-1"
@@ -93,7 +93,6 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-
                                                         <form class="form-container " th:method="PATCH"
                                                               th:action="@{/edit}"
                                                               th:object="${editUser}">
@@ -155,12 +154,13 @@
                                                     </div>
                                                 </div>
                                             </div>
-
+                                        </div>
                                     </td>
 
                                     <td>
                                         <button type="button" class="btn btn-danger" data-toggle="modal"
-                                                th:data-target="${'#DELETE' + user.id}">Delete</button>
+                                                th:data-target="${'#DELETE' + user.id}">Delete
+                                        </button>
                                         <!--Модальное окно удаления пользователя-->
                                         <div class="modal fade" th:id="${'DELETE' + user.id}" tabindex="-1"
                                              role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -211,7 +211,6 @@
                                         </div>
                                     </td>
                                 </tr>
-                                </tbody>
                             </table>
                         </div>
 
