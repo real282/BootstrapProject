@@ -50,6 +50,14 @@ public class UserController {
         return "admin";
     }
 
+    @GetMapping("/user")
+    public String printIndexUser(Model model) {
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("loggedUser", userDetails);
+        model.addAttribute("listRoles", roleService.listRole());
+        return "user";
+    }
+
     //Добавление пользователя
     @PostMapping("/add")
     public String addUser(@ModelAttribute("newUser") User user,
