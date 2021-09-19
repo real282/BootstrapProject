@@ -40,25 +40,19 @@ public class UserController {
     }
 
     //список со всеми пользователями
-    @GetMapping("/index")
+    @GetMapping("/admin")
     public String printIndex(Model model) {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        model.addAttribute("messages", userService.listUsers());
+        model.addAttribute("listUsers", userService.listUsers());
         model.addAttribute("loggedUser", userDetails);
-        return "1";
+        model.addAttribute("listRoles", roleService.listRole());
+        model.addAttribute("newUser", new User());
+        return "admin";
     }
 
-    //форма регистрации нового пользователя
-    @GetMapping("/create")
-    public String createUser(Model model) {
-        model.addAttribute("User", new User());
-        model.addAttribute("Roles", roleService.listRole());
-        return "create";
-    }
-
-    //обработка кнопки с формы регистрации нового пользователя
+    //Добавление пользователя
     @PostMapping("/add")
-    public String addUser(@ModelAttribute("user") User user,
+    public String addUser(@ModelAttribute("newUser") User user,
                           @RequestParam("rolesArr") Integer[] rolesId) {
         Set<Role> setRole = new HashSet<>();
         for (int id : rolesId) {
@@ -66,29 +60,38 @@ public class UserController {
         }
         user.setRoles(setRole);
         userService.add(user);
-        return "redirect:/list";
+        return "redirect:/admin";
     }
+
+
+//    @PostMapping("/add")
+//    public String addUser(@ModelAttribute User user) {
+//        System.out.println("add");
+//        userService.add(user);
+//        return "redirect:/admin";
+//    }
+
 
     //удаление пользователя
     @DeleteMapping("/{id}")
     public String deleteUser(@PathVariable("id") long id) {
         System.out.println("DELETE " + id);
         userService.delete(id);
-        return "redirect:/list";
+        return "redirect:/admin";
     }
 
-    //страница с формой редактирования пользователя
-    @GetMapping("/update={id}")
-    public String update(@PathVariable("id") long id, Model model) {
-        User user = userService.getUserId(id);
-        model.addAttribute("User", user);
-        model.addAttribute("Roles", roleService.listRole());
-        return "update";
-    }
+//    //страница с формой редактирования пользователя
+//    @GetMapping("/update={id}")
+//    public String update(@PathVariable("id") long id, Model model) {
+//        User user = userService.getUserId(id);
+//        model.addAttribute("User", user);
+//        model.addAttribute("Roles", roleService.listRole());
+//        return "update";
+//    }
 
-    //обработка кнопки ОК из формы редактирования пользователя
+    //обработка редактирования пользователя
     @PatchMapping("/edit")
-    public String editUser(@ModelAttribute("user") User user,
+    public String editUser(@ModelAttribute("editUser") User user,
                            @RequestParam("rolesArr") Integer[] rolesId) {
         Set<Role> setRole = new HashSet<>();
         for (int id : rolesId) {
@@ -96,13 +99,13 @@ public class UserController {
         }
         user.setRoles(setRole);
         userService.update(user);
-        return "redirect:/list";
+        return "redirect:/admin";
     }
 
-    //начальная страница админа после логина
-    @GetMapping("index1")
-    public String getInfoAdmin(@AuthenticationPrincipal User user, Model model) {
-        model.addAttribute("user", user);
-        return "1";
-    }
+//    //начальная страница админа после логина
+//    @GetMapping("index1")
+//    public String getInfoAdmin(@AuthenticationPrincipal User user, Model model) {
+//        model.addAttribute("user", user);
+//        return "admin";
+//    }
 }

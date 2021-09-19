@@ -29,7 +29,6 @@ public class PrimaryInitUser {
 
     @PostConstruct
     public void addAdmin() {
-        System.out.println("add User");
         Role roleAdmin = new Role("ROLE_ADMIN");
         Role roleUser = new Role("ROLE_USER");
         roleService.add(roleAdmin);
