@@ -16,15 +16,7 @@ public class RoleDaoImpl implements RoleDao {
 
     @Override
     public void add(Role role) {
-        String nameRole = null;
-        try {
-            nameRole = getRoleByName(role.getRole()).getRole();
-        } catch (Exception ignore) {
-
-        }
-        if (nameRole == null) {
-            entityManager.persist(role);
-        }
+        entityManager.persist(role);
     }
 
     @Override

@@ -17,15 +17,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void add(User user) {
-        String name = null;
-        try {
-            name = getUserByName(user.getName()).getName();
-        } catch (Exception ignore) {
-
-        }
-        if (name == null) {
-            entityManager.persist(user);
-        }
+        entityManager.persist(user);
     }
 
     @Override
