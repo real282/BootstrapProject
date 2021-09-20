@@ -6,7 +6,6 @@ import com.example.crudspringboot.model.User;
 import com.example.crudspringboot.serviece.RoleService;
 import com.example.crudspringboot.serviece.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;

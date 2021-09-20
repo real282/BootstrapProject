@@ -3,8 +3,6 @@ package com.example.crudspringboot.dao;
 import com.example.crudspringboot.model.Role;
 import com.example.crudspringboot.model.User;
 import org.springframework.stereotype.Repository;
-
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;

@@ -2,8 +2,6 @@ package com.example.crudspringboot.serviece;
 
 import com.example.crudspringboot.model.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
-
-
 import java.util.List;
 
 
