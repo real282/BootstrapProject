@@ -37,8 +37,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserId(long id) {
-        return userDao.getUserId(id);
+    public User getUserById(long id) {
+        return userDao.getUserById(id);
     }
 
     @Override
@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void update(User user) {
-        if(!(user.getPassword().equals(userDao.getUserId(user.getId()).getPassword()))) {
+        if(!(user.getPassword().equals(userDao.getUserById(user.getId()).getPassword()))) {
             user.setPassword(passwordEncoder.encode(user.getPassword()));
         }
         userDao.update(user);
